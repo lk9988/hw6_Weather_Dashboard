@@ -1,13 +1,42 @@
 //  my api - b735a5eb039f390c27f374f7010e73a3
 
 
-$(function(){
+// $(function(){
 
     
 
 
-    $(".btn").click(function(e){
-        e.preventDefault(); 
+//     $(".btn").click(function(e){
+//         e.preventDefault(); 
+
+//         let city = $('#city-search-input').val(); 
+//         const queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b735a5eb039f390c27f374f7010e73a3"; 
+//         // used Imperial for measurement unit 
+//         $.ajax({
+//             url:queryURL, 
+//             method: "GET"
+//         })
+//         .then(function(response){
+//             console.log(response)
+//             console.log(response.name)
+//             console.log(response.main.temp)
+//             console.log(response.main.humidity)
+//             console.log(response.wind.speed)
+//             console.log(response.weather[0].icon)
+//             // UV index is with lat & lon only? 
+           
+//             $('#cityName').text( response.name + response.dt ); 
+//             $('#cityTemp').text( "Temperature: " + response.main.temp + " °F" )
+//             $('#cityHumidity').text( "Humidity: " + response.main.humidity )
+//             $('#cityWindspeed').text( "Wind Speed: " + response.wind.speed + "unit")
+            
+//         })
+
+    
+
+//     })
+ // create FUNCTION for displaying cityweather -> later pass on click  $ for enter
+    function cityweather() { 
 
         let city = $('#city-search-input').val(); 
         const queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=b735a5eb039f390c27f374f7010e73a3"; 
@@ -28,12 +57,14 @@ $(function(){
             $('#cityName').text( response.name + response.dt ); 
             $('#cityTemp').text( "Temperature: " + response.main.temp + " °F" )
             $('#cityHumidity').text( "Humidity: " + response.main.humidity )
-            $('#cityWindspeed').text( "Wind Speed: " + response.wind.speed )
-            
-        })
+            $('#cityWindspeed').text( "Wind Speed: " + response.wind.speed + "unit")
+        }
 
 
-    })
+        )
+    }
+    
+    $(".btn").click(cityweather); 
 
     let cities; 
     // creat array for city searched and stored in localST
@@ -78,4 +109,4 @@ $(function(){
 
 
 
-})
+// })
