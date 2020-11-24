@@ -22,6 +22,7 @@
 
 <!-- main container  -->
     <div class = "container">
+      
       <div class = "row">
         
 
@@ -43,23 +44,22 @@
                 <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
                 <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
             </div>
-            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
-            </div>
-            <!-- end  -->
-      </div>
+            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example"></div>
+            <!-- list end  -->
+        </div>
        <!-- city search section ends-->
 
        <!-- weather display section begins -->
-      <div class = "search-result-area px-4 col-sm-9">
+        <div class = "search-result-area px-4 col-sm-9">
 
         <!-- City & Weather & date display -->
           <div class="card">
               <div id= "city-weather-display" class="card-body">
-                <h5 class="card-title">City & Weather & date display & icon</h5>
-                <p class="card-text" id= "temperature">Temperature:</p>
-                <p class="card-text" id= "humidity">Humidity:</p>
-                <p class="card-text" id= "wind-speed">Wind Speed:</p>
-                <p class="card-text" id= "uv-index">UV Index:</p>
+                <h5 id = "cityName" class="card-title">City Name  & date display & icon</h5>
+                <p id = "cityTemp" class= "card-text" >Temperature:</p>
+                <p id = "cityHumidity" class="card-text" >Humidity:</p>
+                <p id = "cityWindspeed" class="card-text" >Wind Speed:</p>
+                <p id = "cityUV" class="card-text" >UV Index:</p>
                 </div>
           </div>
         
@@ -69,10 +69,74 @@
           <div class="card">
             <div id = "5-day-forecast-display" class="card-body">
               <h5 class="card-title">5-Day forecast here</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              
+              <!-- need to append this dynamically -->
+             
+              <div class="row">
+                
+                <div class="col-sm-2">
+                  <div class="card">
+                    <div class="card-body bg-primary text-white">
+                      <h4 class="card-title">Date here</h4>
+                      <p id = "weather-icon" class="card-text">weather icon here </p>
+                      <p class="card-text">temp here </p>
+                      <p class="card-text">humidity here </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-sm-2">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      
+                    </div>
+                  </div>
+                </div>
               </div>
-        </div>
-           
+
+              <!-- dynamic appending end -->
+
+
+
+
+
+            
+            </div>
+         </div>
+            <!-- card end -->
 
 
       </div>
