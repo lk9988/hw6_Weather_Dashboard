@@ -46,25 +46,32 @@
             method: "GET"
         })
         .then(function(response){
+            // need to empty before appending new one 
+
             console.log(response)
-            console.log(response.name)
-            console.log(response.main.temp)
-            console.log(response.main.humidity)
-            console.log(response.wind.speed)
+           
             console.log(response.weather[0].icon)
             // UV index is with lat & lon only? 
            
-            $('#cityName').text( response.name + response.dt ); 
-            $('#cityTemp').text( "Temperature: " + response.main.temp + " °F" )
-            $('#cityHumidity').text( "Humidity: " + response.main.humidity )
-            $('#cityWindspeed').text( "Wind Speed: " + response.wind.speed + "unit")
-        }
+            // $('#cityName').text( response.name + response.dt ); 
+            // $('#cityTemp').text( "Temperature: " + response.main.temp + " °F" )
+            // $('#cityHumidity').text( "Humidity: " + response.main.humidity )
+            // $('#cityWindspeed').text( "Wind Speed: " + response.wind.speed + "unit")
 
-
-        )
+            // dinamically creating HTML 
+            const cityWeatherDisplay = `
+            <h5> ${ response.name } ${ response.dt}  </h5>
+            <p> Temperature: ${ response.main.temp } </P>
+            <p> Humidity: ${ response.main.humidity } </p>
+            <p> Wind Speed: ${ response.wind.speed } MPH </P>
+            `
+            $('#city-weather-display').append(cityWeatherDisplay); 
+        })
     }
     
+    // add 
     $(".btn").click(cityweather); 
+
 
     let cities; 
     // creat array for city searched and stored in localST
