@@ -3,8 +3,28 @@
 
 $(function(){
 
-    
+    // getting array for pastCitySearch in localStorage or empty array if there is none 
+    let pastCityList = JSON.parse(localStorage.getItem('pastCitySearch')) || []; 
 
+    if (pastCityList.lenth > 0 ) { 
+        // if there is any city in pastCityList array, 
+        pastCityList.forEach(function(city){
+            // // Loop thru forEach item in array and 
+            // let aCity = `<a class="list-group-item list-group-item-action" href="#list-item-5"> 
+            //                 Item5 </a>`; 
+            // $().append(aCity); 
+            // creat HTML element and render
+        })
+    }
+
+    // ***** FUNCTION adding input city to pasrCityList array 
+    function addToLocalStorage (city) { 
+        pastCityList.push(city); 
+        let citySting = JSON.stringify(pastCityList); 
+        //Converts a JavaScript value (pastCityList) to a JSON string.
+        localStorage.setItem('pastCitySearch' , citySting); 
+        // and set it to localStorage array/pastCitySearch 
+    }
 
 //     $(".btn").click(function(e){
 //         e.preventDefault(); 
@@ -36,7 +56,7 @@ $(function(){
 
 //     })
  // create FUNCTION for displaying cityweather -> later pass on click  $ for enter
-    function cityweather() { 
+    function cityWeather() { 
         // need to empty before appending new one 
 
         let city = $('#city-search-input').val().trim(); 
@@ -67,12 +87,14 @@ $(function(){
             `
             $('#city-weather-display').append(cityWeatherDisplay); 
             // appeding to HTML
-            const lat = (response.coord.lat); 
-            const lon = (response.coord.lon); 
+            // const lat = (response.coord.lat); 
+            // const lon = (response.coord.lon); 
             // const lat = parseInt(response.coord.lat); 
+            const lat = response.coord.lat; 
+            const lon = response.coord.lon; 
 
             getUV(lat, lon); 
-            // console.log(lat); 
+            console.log('qhat' , lat); 
 
 
         })
@@ -87,8 +109,9 @@ $(function(){
             method: "GET"
         })
         .then(function(response){
-
+            console.log(response); 
             console.log(response[0].value); 
+
             //got UV index!!
 
         })
@@ -105,10 +128,14 @@ $(function(){
 
     
     // seatch button click 
-    $(".btn").click(cityweather); 
+    $('.btn').click(cityWeather); 
+    $('.btn').click(function (){
+        let newCity = $('#city-search-input').val().trim(); 
+        addToLocalStorage(newCity); 
+    }); 
 
 
-    let cities; 
+    
     // creat array for city searched and stored in localST
     // initial array would be empty 
 
