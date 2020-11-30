@@ -197,7 +197,13 @@ $(function(){
             console.log(cityClicked , '168')
         })
 
-        
+        $('#clear-btn').on('click', function(){
+            localStorage.removeItem('pastCitySearch'); 
+            $('#past-search').empty(); 
+            $('#city-weather-display').empty(); 
+            $('#5-day-forecast-display').empty(); 
+           
+        })
 
     
         console.log('what'); 

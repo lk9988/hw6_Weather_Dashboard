@@ -38,8 +38,9 @@
               </div>
             </form>
             <!-- clickable list created after with past city // may want to append this dynamically - with a -->
-            
+            <button id ="clear-btn" class="btn btn-secondary" type="submit">Clear Search</button>
             <div id = "past-search" class="list-group">
+              
               <!-- button render here -->
               
             </div>
@@ -56,15 +57,16 @@
         <!-- City & Weather & date display -->
           <div class="card">
 
-              <div id= "city-weather-display" class="card-body">
+              <div id= "city-weather-container" class="card-body text-center">
                 <h5>Current Weather</h5>
+                <div id = "city-weather-display" >
                 
                 <!-- <h5 id = "cityName" class="card-title">City Name  <span id = "cityDate">& date display </span> <span id ="cityIcon">& icon</span></h5>
                 <p id = "cityTemp" class= "card-text" >Temperature:</p>
                 <p id = "cityHumidity" class="card-text" >Humidity:</p>
                 <p id = "cityWindspeed" class="card-text" >Wind Speed:</p>
                 <p id = "cityUV" class="card-text" >UV Index:</p> -->
-
+                </div>
       
                 </div>
           </div>
@@ -74,7 +76,7 @@
         <!-- 5-Day forecast here  -->
           <div class="card d-flex">
             <div class="card-body flex-wrap align-content-lg-around">
-              <h5 class="card-title">5-Day Forecast</h5>
+              <h5 class="card-title text-center">5-Day Forecast</h5>
               
               <!-- need to append this dynamically -->
              
