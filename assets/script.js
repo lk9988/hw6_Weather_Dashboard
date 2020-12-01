@@ -20,7 +20,7 @@ $(function(){
                 
             }
             
-            console.log(pastCityList); 
+            // console.log(pastCityList); 
         }
     
   
@@ -40,19 +40,19 @@ $(function(){
                 method: "GET"
             })
             .then(function(response){
-                console.log(response)
+                // console.log(response)
                 // console.log(response.descrip)
                
-                console.log(response.weather[0].icon); 
-                console.log(response.coord.lat); 
-                console.log(response.coord.lon); 
+                // console.log(response.weather[0].icon); 
+                // console.log(response.coord.lat); 
+                // console.log(response.coord.lon); 
                 
                 const weatherIcon = response.weather[0].icon;
 
                 const iconURL=  "https://openweathermap.org/img/wn/" + weatherIcon + ".png"
-                console.log(iconURL)
+                // console.log(iconURL)
                 const date = moment.unix(response.dt).format('MM/DD/YYYY'); 
-                console.log(date); 
+                // console.log(date); 
                 
                 // dinamically creating HTML 
                 
@@ -66,8 +66,8 @@ $(function(){
                 
                 $('#city-weather-display').append(cityWeatherDisplay); 
                 // appeding to HTML
-                const lat = (response.coord.lat); 
-                const lon = (response.coord.lon); 
+                const lat = response.coord.lat; 
+                const lon = response.coord.lon; 
                 // const lat = parseInt(response.coord.lat); 
     
                 getUV(lat, lon); 
@@ -86,40 +86,59 @@ $(function(){
                 method: "GET"
             })
             .then(function(response){
-                console.log(response); 
+                // console.log(response); 
 
     
-                console.log(response.current.uvi); 
+                // console.log(response.current.uvi); 
                 
                 const uvIndex = response.current.uvi; 
                 const uvDispay = `<p> UV Index: <span id = "uvi"> ${ uvIndex } </span> </p>`
-                console.log(uvIndex , 'uvindex')
+                $('#city-weather-display').last().append(uvDispay); 
+
+                const uvSpan = document.getElementById("uvi"); 
+                // console.log(uvIndex , 'uvindex')
                 // $('#uvi').text(uvIndex); 
                
-
-                $('#uvi').removeClass(); 
+                // console.log(uvDispay); 
+                // $('#uvi').removeClass(); 
                 
                 // 1-2 Low green , 3-5 yellow Moderate  , 6-7 High orage , 8-10 Red Very High , 11+ Purple Extreme 
                 // THIS IS NOT WORKING 
                 // SOMETHNG IS NOT RIGHT
+                console.log('sdkjfsdljsdflkjdfslkjdf' , uvIndex)
+                console.log($('#uvi')); 
                 if ( uvIndex < 3 ) {
-                    $('#uvi').addClass("text-white bg-success"); 
+                    // $('#uvi').addClass("text-white bg-success"); 
+                    uvSpan.setAttribute("class" , "text-white bg-success" ); 
+
+                    console.log('what1')
                 } 
                 else if( uvIndex >= 3 && uvIndex < 6  ){
-                    $('#uvi').addClass("text-white bg-warning"); 
+                    // $('#uvi').addClass("text-white bg-warning"); 
+                    uvSpan.setAttribute("class" , "text-white bg-warning" ); 
+                    console.log('what2')
                 }
                 else if( uvIndex >= 6 && uvIndex< 8  ){
-                    $('#uvi').addClass("text-white bg-orange"); 
-
+                    // $('#uvi').addClass("text-white bg-orange"); 
+                    uvSpan.setAttribute("class" , "text-white bg-orange" ); 
+                    console.log('what3')
+                    console.log($('#uvi')); 
                 }
                 else if( uvIndex >= 8 && uvIndex < 11  ){
-                    $('#uvi').addClass("text-white bg-danger"); 
+                    // $('#uvi').addClass("text-white bg-danger"); 
+                    uvSpan.setAttribute("class" , "text-white bg-danger" ); 
+                    console.log('what4')
                 }
                 else if( uvIndex > 11  ){
-                    $('#uvi').addClass("text-white bg-purple"); 
+                    // $('#uvi').addClass("text-white bg-purple"); 
+                    uvSpan.setAttribute("class" , "text-white bg-purple" ); 
+                    console.log('what5')
+                }
+                else{
+                    console.log('i am here!!!!!!!!!! '); 
                 }
 
-                $('#city-weather-display').last().append(uvDispay); 
+                // $('#city-weather-display').last().append(uvDispay); 
     
             })
     
@@ -155,12 +174,12 @@ $(function(){
 
                 }
                 // const forecasedate = moment.unix(response.daily[1].dt).format('MM/DD/YYYY');
-                // console.log(forecastdate) 
-                console.log(response.daily[0].dt)
+                // // console.log(forecastdate) 
+                // console.log(response.daily[0].dt)
 
-                console.log(response.daily[0].weather[0].icon); 
-                console.log(response.daily[0].temp.day); 
-                console.log(response.daily[0].humidity); 
+                // console.log(response.daily[0].weather[0].icon); 
+                // console.log(response.daily[0].temp.day); 
+                // console.log(response.daily[0].humidity); 
 
             })
 
