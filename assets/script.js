@@ -2,9 +2,10 @@
 
 
 $(function(){
-    $('.form-group').on('submit' , function(e){
-        e.preventDefault(); 
-    })
+
+    // $('.form-group').on('submit' , function(e){
+    //     e.preventDefault(); 
+    // })
     
         const myAPI = "b735a5eb039f390c27f374f7010e73a3"; 
 
@@ -40,12 +41,7 @@ $(function(){
                 method: "GET"
             })
             .then(function(response){
-                // console.log(response)
-                // console.log(response.descrip)
-               
-                // console.log(response.weather[0].icon); 
-                // console.log(response.coord.lat); 
-                // console.log(response.coord.lon); 
+              
                 
                 const weatherIcon = response.weather[0].icon;
 
@@ -105,38 +101,35 @@ $(function(){
                 // 1-2 Low green , 3-5 yellow Moderate  , 6-7 High orage , 8-10 Red Very High , 11+ Purple Extreme 
                 // THIS IS NOT WORKING 
                 // SOMETHNG IS NOT RIGHT
-                console.log('sdkjfsdljsdflkjdfslkjdf' , uvIndex)
-                console.log($('#uvi')); 
+                
+                
                 if ( uvIndex < 3 ) {
                     // $('#uvi').addClass("text-white bg-success"); 
                     uvSpan.setAttribute("class" , "text-white bg-success" ); 
 
-                    console.log('what1')
+                    
                 } 
                 else if( uvIndex >= 3 && uvIndex < 6  ){
                     // $('#uvi').addClass("text-white bg-warning"); 
                     uvSpan.setAttribute("class" , "text-white bg-warning" ); 
-                    console.log('what2')
+                    
                 }
                 else if( uvIndex >= 6 && uvIndex< 8  ){
                     // $('#uvi').addClass("text-white bg-orange"); 
                     uvSpan.setAttribute("class" , "text-white bg-orange" ); 
-                    console.log('what3')
-                    console.log($('#uvi')); 
+                    
                 }
                 else if( uvIndex >= 8 && uvIndex < 11  ){
                     // $('#uvi').addClass("text-white bg-danger"); 
                     uvSpan.setAttribute("class" , "text-white bg-danger" ); 
-                    console.log('what4')
+                   
                 }
                 else if( uvIndex > 11  ){
                     // $('#uvi').addClass("text-white bg-purple"); 
                     uvSpan.setAttribute("class" , "text-white bg-purple" ); 
-                    console.log('what5')
+                    
                 }
-                else{
-                    console.log('i am here!!!!!!!!!! '); 
-                }
+                
 
                 // $('#city-weather-display').last().append(uvDispay); 
     
@@ -153,11 +146,13 @@ $(function(){
                 method: "GET"
             })
             .then(function(response){
+                
 
                 for (i = 1; i < 6 ; i++ ){
+                    
 
-                    const forecastDate = moment.unix(response.daily[1].dt).format('MM/DD/YYYY');
-                    const forecaseIcon = response.daily[0].weather[0].icon; 
+                    const forecastDate = moment.unix(response.daily[i].dt).format('MM/DD/YYYY');
+                    const forecaseIcon = response.daily[i].weather[0].icon; 
                     const forecaseIconURL =  "https://openweathermap.org/img/wn/" + forecaseIcon + "@2x.png"
                     const forecastDisplay = `
                     <div class="col-sm-4">
@@ -165,21 +160,15 @@ $(function(){
                         <div class="card-body bg-primary text-white rounded">
                         <h4 class="card-title"> ${forecastDate} </h4>
                         <img class="card-text" src = "${ forecaseIconURL}">
-                        <p class="card-text">Temp: ${ response.daily[0].temp.day }  °F </p>
-                        <p class="card-text">Humidity: ${response.daily[0].humidity}   %</p>
+                        <p class="card-text">Temp: ${ response.daily[i].temp.day }  °F </p>
+                        <p class="card-text">Humidity: ${response.daily[i].humidity}   %</p>
                     </div>
                   </div>
                 </div>`
                     $('#5-day-forecast-display').append(forecastDisplay)
 
                 }
-                // const forecasedate = moment.unix(response.daily[1].dt).format('MM/DD/YYYY');
-                // // console.log(forecastdate) 
-                // console.log(response.daily[0].dt)
-
-                // console.log(response.daily[0].weather[0].icon); 
-                // console.log(response.daily[0].temp.day); 
-                // console.log(response.daily[0].humidity); 
+            
 
             })
 
@@ -224,14 +213,5 @@ $(function(){
            
         })
 
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
+     
 })
