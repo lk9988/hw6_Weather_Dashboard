@@ -95,23 +95,23 @@ $(function () {
 			// 1-2 Low green , 3-5 yellow Moderate  , 6-7 High orage , 8-10 Red Very High , 11+ Purple Extreme
 			if (uvIndex < 3) {
 				// $('#uvi').addClass("text-white bg-success"); -> this wasn't working.
-				uvSpan.setAttribute('class', 'text-white bg-success');
+				uvSpan.setAttribute('class', 'text-white bg-success p-1');
 				// setting newly created span's class with bootstrap class for changing bg and text color
 			} else if (uvIndex >= 3 && uvIndex < 6) {
 				// $('#uvi').addClass("text-white bg-warning");
-				uvSpan.setAttribute('class', 'text-white bg-warning');
+				uvSpan.setAttribute('class', 'text-white bg-warning p-1');
 			} else if (uvIndex >= 6 && uvIndex < 8) {
 				// $('#uvi').addClass("text-white bg-orange");
-				uvSpan.setAttribute('style', 'text-white bg-orange');
+				uvSpan.setAttribute('style', 'text-white bg-orange p-1');
 				// uvSpan.style.backgroundColor = "orange";
 				// uvSpan.style.color= "white"
 				// bg-orange does not exist in bootstrap. add additional css
 			} else if (uvIndex >= 8 && uvIndex < 11) {
 				// $('#uvi').addClass("text-white bg-danger");
-				uvSpan.setAttribute('class', 'text-white bg-danger');
+				uvSpan.setAttribute('class', 'text-white bg-danger p-1');
 			} else if (uvIndex > 11) {
 				// $('#uvi').addClass("text-white bg-purple");
-				uvSpan.setAttribute('class', 'text-white bg-purple');
+				uvSpan.setAttribute('class', 'text-white bg-purple p-1');
 				// bg-purple does not exist in bootstrap. add additional css
 			}
 
