@@ -1,16 +1,16 @@
 #search-icon {
-  color: white;
+	color: white;
 }
 
 body {
-  /* background-image: url("./mosi-knife--PVgDgKXgZA-unsplash.jpg"); */
-  background-image: linear-gradient(to right, #11bbdf, #a7bdec);
-  background-size: cover;
+	/* background-image: url("./mosi-knife--PVgDgKXgZA-unsplash.jpg"); */
+	background-image: linear-gradient(to right, #11bbdf, #a7bdec);
+	background-size: cover;
 }
 .bg-orange {
-  background-color: orange;
+	background-color: orange;
 }
 
 .bg-purple {
-  background-color: purple;
+	background-color: purple;
 }
